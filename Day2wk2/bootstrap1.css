@@ -1,0 +1,22 @@
+.row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#row1 > div:nth-child(even){
+    height: 100px;
+    background-color: green;
+}
+#row1 > div:nth-child(odd){
+    height: 100px;
+    background-color: blue;
+}
+
+#row2 > div:nth-child(even){
+    height: 100px;
+    background-color: hotpink;
+}
+#row2 > div:nth-child(odd){
+    height: 100px;
+    background-color: black;
+}
