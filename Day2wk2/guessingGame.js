@@ -25,7 +25,9 @@ function handleGuess() {
     if (+guess == answer) {
         // Tell them the answer is right.
         $("#message").text("You're right!");
+        $("#playAgain").show();
         return true;
+
         // Do you want to play again
     } else {
         // Tell them the answer is wrong.
@@ -53,7 +55,11 @@ $(function () {
     // Wire up event handlers.
     $("#startGame").on("click", playGame);
     $("#btnGuess").on("click", handleGuess);
+    $("#btnPlayAgain").on("click", setupGame);
+    $("#btnQuitReset").on("click", setupGame);
+
 
     // Start the game.
     setupGame();
+
 });
