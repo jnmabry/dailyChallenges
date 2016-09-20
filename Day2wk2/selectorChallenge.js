@@ -7,6 +7,6 @@ $(function(){
     $("h3").css("color","blue");
 
     // Control first li item in ul 
-    $('li').first().css("color", "red");
+    $("li").first().css("color", "red");
 
 });
