@@ -1,0 +1,53 @@
+<html>
+
+<head>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="bootstrap1.css" type="text/css">
+
+</head>
+
+<body>
+
+<script>
+
+$(function(){
+
+    $.ajax({
+        url:"https://api.darksky.net/forecast/e44f3f2d240349234b265d409c81c2d6/37.8267,-122.4233",
+        dataType: "jsonp",
+        success: function(result){
+            console.log(result.latitude);
+            console.log(result.longitude);
+            console.log(result.timezone);
+            console.log(result.currently.summary + " " + result.currently.temperature);
+
+            for (i = 0; i <= result.hourly.data.length - 1; i++){
+                var hour = result.hourly.data[i]
+                var time = new Date(hour.time * 1000);
+                console.log(hour.summary);
+                console.log(time);
+            }
+            
+        } 
+    });
+});
+
+</script>
+
+</body>
+
+</html>

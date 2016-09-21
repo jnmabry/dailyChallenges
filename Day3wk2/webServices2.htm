@@ -1,7 +1,6 @@
 <html>
 
 <head>
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
@@ -16,50 +15,48 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="bootstrap1.css" type="text/css">
-
+    <link rel="stylesheet" type="text/css" href="united-theme.css">
 </head>
 
 <body>
 
-    <div class="container">
-
-        <div class="row" id="row1">
-            <div class="col-md-2"></div>
-            <div class="col-md-2 hidden-xs"></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2 hidden-xs"></div>
-            <div class="col-md-2"></div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">My Website</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Page 1</a></li>
+                <li><a href="#">Page 2</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="row" id="row2">
-            <div class="col-md-3 col-xs-push-#"></div>
-            <div class="col-md-3"></div>
-            <div class="col-md-3"></div>
-            <div class="col-md-3"></div>
-        </div>
+    <h1>Some header</h1>
+    <p>Bacon ipsum dolor amet leberkas filet mignon swine, bresaola salami prosciutto alcatra turkey shank meatloaf porchetta
+        flank tri-tip ribeye. Bacon jerky hamburger boudin sirloin, shank tenderloin meatloaf corned beef cupim. Bresaola
+        biltong chuck, tenderloin ribeye kevin corned beef ham hock frankfurter tri-tip chicken hamburger bacon swine t-bone.
+        Fatback shoulder andouille doner. Kevin pork chop beef ribs ball tip meatloaf. Shoulder cupim rump andouille landjaeger
+        pancetta. Ham hock tenderloin tongue pork loin picanha pork belly.</p>
 
-        <div class="row">
-            <img  src="unicornPoop.jpg" alt="unicorn pooping" class="thumbnail img-circle col-md-6">
-            <img  src="unicornPoop.jpg" alt="unicorn pooping" class="thumbnail img-rounded col-md-6">
-        </div>
-
-    </div>
-
-<script>
-
-$(function(){
-
-    $.ajax({
-        url:"https://api.darksky.net/forecast/e44f3f2d240349234b265d409c81c2d6/37.8267,-122.4233",
+    <script>
+// Callback from DarkSky
+function darksky_Complete(result) {
+    console.log(result.currently.summary);
+    var hour1 = result.hourly.data[0];
+    var time = new Date(hour1.time * 1000);
+    console.log("Time: " + time.toLocaleString());
+}
+$(function() {
+    var request = {
+        url: "https://api.darksky.net/forecast/ed7be92607845014ac1b22c8b2dcb545/37.8267,-122.4233",
         dataType: "jsonp",
-        success: function(result){
-            console.log(result.currently.summary);
-        } 
-    });
+        success: darksky_Complete
+    };
+    $.ajax(request);
 });
-
 </script>
 
 </body>
